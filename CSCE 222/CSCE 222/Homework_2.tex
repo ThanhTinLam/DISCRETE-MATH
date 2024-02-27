@@ -1,0 +1,271 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,amsmath,marvosym,wasysym,supertabular}
+\setlength{\oddsidemargin}{-0.29in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+\setlength{\textwidth}{7.0in}
+\setlength{\headheight}{0.0in}
+\setlength{\headsep}{0.0in}
+\setlength{\textheight}{8.75in}
+\setlength{\topmargin}{0.0in}
+\def\p{\vskip 4pt}
+\begin{document}
+\fbox{\begin{minipage}{\textwidth}
+    \begin{center}
+      CSCE 222---Spring 2024 \\
+      Homework \#2 \\
+      Name: Thanh Tin Lam\\
+      UIN: $633008457$
+    \end{center}
+    \end{minipage}}
+\vspace{.5cm}
+
+\begin{enumerate}
+\item Which of the following assertions are true no matter what proposition $Q$ represents? For any false assertion, state a counterexample (i.e., come up with a statement $Q(x,y)$ that would make the implication false). For any true assertion, give a brief explanation for why it is true.
+
+  \begin{enumerate}
+  \item[1.] $\exists x \exists y \, Q(x,y) \rightarrow \exists y \exists x \, Q(x,y)$\\
+  
+  True. Both statements indicate the existence of $\exists x$ and $\exists y$ in our universe such that $Q(x,y)$ holds true, therefore, both statements are equivalent. In general, you can rearrange the order of consecutive sequence of existential quantifiers ($ \exists$).\\
+
+  \item[2.] $\exists x \exists y \, Q(x,y) \rightarrow \forall y \exists x \, Q(x,y)$\\
+  
+  This assertion is not always true. Consider a counterexample where $Q(x,y)$ represents "$x < y$" (where $x,y$ $\in$ $\mathbb{N}$). In this case, $\exists x \exists y \, Q(x,y)$ would mean "there exist two numbers $x$ and $y$ such that $x$ is less than $y$", which is true for many pairs of numbers. However, $\forall y \exists x \, Q(x,y)$ would mean "for every natural number $y$, there exists a number $x$ such that $x$ is less than $y$", which is false, because there is no such $x$ for $y = 0$.\\
+
+
+
+  \end{enumerate}
+
+\newpage
+\item Write the negation of the following statement so the negation symbols all immediately precede the predicates rather than the quantifiers: $ \forall x \exists y \, P(x,y) \lor \exists x \forall y \, P(x,y)$\\
+
+\begin{align*}
+& \neg (\forall x \exists y P(x, y) \lor \exists x \forall y P(x, y)) \\
+\equiv & \neg (\forall x \exists y P(x, y)) \land \neg (\exists x \forall y P(x, y)) \\
+\equiv & (\exists x \neg \exists y P(x, y)) \land (\forall x \neg \forall y P(x, y)) \\
+\equiv & (\exists x \forall y \neg P(x, y)) \land (\forall x \exists y \neg P(x, y))
+\end{align*}
+
+
+\newpage
+\item \text{Translate each of these statements into logical expressions using predicates, quantifiers and logical connectives.} \\
+\text{Let } C(x) \text{ denote the predicate “} x \text{ is in the correct place”,} E(x) \text{ denote the predicate “} x \text{ is in excellent condition”,} {and let } T(x) \text{ denote the predicate “} x \text{ is a tool”,} {and suppose that the domain consists of all tools.}
+
+  \begin{enumerate}
+  \item[1.] Something is not in the correct place.\\
+
+  $\exists x \neg C(x)$\\
+
+  
+  \item[2.] All tools are in the correct place and are in excellent condition.\\
+
+$\forall x (T(x) \rightarrow (C(x) \land E(x)))$\\
+
+
+  \item[3.]Everything is in the correct place and is in excellent condition.\\
+
+  $\forall x (C(x) \land E(x))$\\
+
+
+  \item[4.]Nothing is in the correct place and is in excellent condition.\\
+  
+$\forall x \neg (C(x) \land E(x))$\\
+
+
+  \item[5.]One of your tools is not in the correct place, but is in excellent condition\\
+
+ $ \exists x (T(x)\land \neg C(x) \land E(x))$\\
+
+  
+  \end{enumerate}
+
+\newpage
+\item Let F(x,y) be the statement “x can fool y”, where the domain consists of all people in the world. Use quantifiers to express each of these statements.
+
+  
+  \begin{enumerate}
+  \item[1.]Everybody can fool Fred.\\
+  
+    $\forall x \, F(x, \text{Fred})$
+
+  \item[2.] Evelyn can fool everybody.\\
+  
+  $\forall y \, F(\text{Evelyn}, y)$\\
+
+  \item[3.] Everybody can fool somebody.\\
+  
+  $\forall x \, \exists y \, F(x, y)$\\
+
+  \item[4.] There is no one who can fool everybody.\\
+  
+  $\neg \exists x \, \forall y \, F(x,y)$\\
+
+  \item[5.] Everyone can be fooled by somebody.\\
+  
+  $\forall y \, \exists x \, F(x, y)$\\
+
+  \item[6.] No one can fool both Fred and Jerry.\\
+  
+  $\neg \exists x (F(x, \text{Fred}) \land F(x, \text{Jerry}))\\$
+
+  \item[7.] Nancy can fool exactly two people.\\
+  
+$\exists y \exists z \, (y \neq z) \land F(\text{Nancy},y) \land F(\text{Nancy},z) \land \forall w \, ((w = y) \lor (w = z) \lor \neg F(\text{Nancy},w))$\\
+
+  \item[8.] There is exactly one person whom everybody can fool.\\
+  
+$\exists y ( \forall x \, F(x,y) \land ( \forall z \, (( \forall w \, F(w,z) ) \rightarrow y = z ))$
+
+
+  \end{enumerate}
+
+\newpage
+\item Determine whether each of the propositions below is true or false.\\
+
+
+  \begin{enumerate}
+  \item[1.] $(A \cap B \neq \emptyset) \rightarrow ((A \setminus B) \subset A)$\\
+    True\\
+    
+  \item[2.] $(A \setminus B = A) \rightarrow (B \subset A)$\\
+    False\\
+    
+  \item[3.] $(A \setminus B = \emptyset) \rightarrow (A \cap B = B \cap A)$\\
+    True\\
+    
+  \item[4.] $(A \subseteq B) \rightarrow (|A \cup B| \geq 2|A|)$\\
+    False\\
+
+  \item[5.] $(A \cap B \cap C) \subseteq (A \cup B)$\\
+  True\\
+  
+
+  \end{enumerate}
+
+\newpage
+\item Let $A = \{1, 3, 12, 35\}$, $B = \{3, 7, 12, 20\}$, and $C = \{x \mid x \text{ is a prime number}\}$. 
+
+List the elements of the following sets. Determine if any of the sets are disjoint from any of the others, and if any of the sets are subsets of any others.
+
+  \begin{enumerate}
+  \item[1.] $A \cap B = \{3, 12\}$ \\
+  
+
+  \item[2.] $(A \cup B) \setminus C = \{1, 12, 35, 20\}$\\
+
+
+  \item[3.] $A \cup (B \setminus C) = \{1, 3, 12, 35, 20\}$\\
+
+    - No sets are disjoint.\\
+    
+    - $A \cap B \subset A \cup (B \setminus C) , because \{3, 12\} \subset \{1, 3, 12, 35, 20\}$\\
+
+    $(A \cup B) \setminus C \subset A \cup (B \setminus C) , because \{1, 12, 35, 20\} \subset \{1, 3, 12, 35, 20\}$\\
+    
+  \end{enumerate}
+
+\newpage
+\item For each of the following sets, write out (using logical symbols) what it means for an object x to be an element of the set. Then determine which of these sets must be equal to each other by determining which statements are equivalent.\\
+
+  \begin{enumerate}
+  \item[1.] $(A \setminus B) \setminus C$\\
+
+    $= x \in (A \setminus B) \setminus C$      by assumption\\
+    $= x \in (A \setminus B) \land \neg(x \in C)$   defn. of difference \\
+    $= x \in A \land \neg(x \in B) \land \neg(x \in C)$   defn. of difference\\
+    $=(x \in A \land x \notin B \land x \notin C)$   defn. of negation\\
+
+  \item[2.]$(A \setminus B) \cup (A \cap C)$\\
+
+    $= x \in (A \setminus B) \cup (A \cap C)$  by assumption\\
+    $= x \in (A \setminus B) \lor x \in (A \cap C)$   defn. of union\\
+    $=(x \in A \land x \notin B) \lor (x \in A \land x \in C)$   defn. of difference \& intersection\\
+    $=(x \in A ) \land (x \notin B \lor x \in C)$  by distributive laws\\
+
+  \item[3.] $A \setminus (B \cup C)$\\
+
+    $= x \in A \setminus (B \cup C)$    by assumption\\
+    $ = x \in A \land \neg(x \in (B \cup C))$   defn. of difference \\
+    $ = (x \in A \land \neg(x \in B \lor x \in C)$  defn. of union\\
+  $ = (x \in A \land x \notin B \land x \notin C)$  by De Morgan law\\
+
+
+  -\textbf{Therefore $(A \setminus B) \setminus C = A \setminus (B \cup C)$}
+
+
+  \end{enumerate}
+
+\newpage
+\item Use any method you wish to verify the following identities:\\
+
+  \begin{enumerate}
+  \item $(A \setminus B) \cap C = (A \cap C) \setminus B$\\
+  
+   $(A \setminus B) \cap C$ \\
+$= \{x \mid x \in (A \setminus B) \land x \in C\}$   
+   (definition of intersection)\\
+$= \{x \mid x \in A \land x \notin  B \land x \in C\}$      (definition of difference)\\
+$= \{x \mid (x \in A \land x \in C) \land x \notin B\}$  (by associative laws)\\
+$= (A \cap C) \setminus B$       (definition of intersection \& difference)  \\
+
+  \item $(A \cap B) \setminus B = \emptyset$\\
+
+    $(A \cap B) \setminus B$   \\
+$= \{x \mid x \in (A \cap B) \land x \notin B\}$    (definition of difference)\\
+$= \{x \mid x \in A \land x \in B \land x \notin B\}$ (definition of intersection)\\
+$= \emptyset$   (by complement laws \& domination laws)\\
+
+
+  \item $A \setminus (A \setminus B) = A \cap B$\\
+  
+    $A \setminus (A \setminus B)$ \\
+$= \{x \mid x \in A \land x \notin (A \setminus B)\}$  
+ (definition of difference) \\
+ $= \{x \mid x \in A \land (x \notin A \lor x\in  B)\}$ (definition of complement \& De Morgan's Law)\\
+$= \{x \mid (x \in A \land x \notin A) \lor (x \in A \land x \in B)\}$ (Distributive laws)\\
+$= \{x \mid (x \in A \land x \in B)\}$ (complement laws \& Identity laws)\\
+= $A \cap B$ (definition of intersection)\\
+  \end{enumerate}
+
+\newpage
+\item Suppose that $A$ is the set of sophomores at A\&M and $B$ is the set of students in discrete math at A\&M. Express each of these sets in terms of $A$ and $B$.\\
+
+  \begin{enumerate}
+  \item The set of sophomores taking discrete math\\
+  $A \cap B$\\
+  
+  \item The set of sophomores who are not taking discrete math\\
+  A - B
+  
+  \item The set of students who are either sophomores or taking discrete math\\
+  $A \cup B$\\
+    
+  
+  \item The set of students who either are not sophomores or are not taking discrete math\\
+  $\bar{A} \cup \bar{B}$\\
+  
+  \end{enumerate}
+
+\newpage
+\item In a mathematics contest with three problems, 80\% of the participants solved the first problem, 75\% solved the second, and 70\% solved the third. Prove that at least 25\% of the participants solved all three problems using sets.\\
+
+
+- Let the total number of participants be \( n > 0 \).\\
+We denote \( A \) is the set of people who missed the first problem , \( B \) is the set of people who missed the second problem, and \( C \) is the set who missed the third problem . Hence, \\
+\( |A| = n - 0.8n = 0.2n \)\\
+\( |B| = n - 0.75n = 0.25n \)\\
+\( |C| = n - 0.7n = 0.3n \). \\
+We also know "Principle of Inclusion and Exclusion" that\\
+\[| A \cup B \cup C | = | A | + | B | + | C | - | A \cap B | - | A \cap C | - | B \cap C | + | A \cap B \cap C |\]\\
+Every member of \(|A \cup B \cup C|\) also belongs to \(|A| + |B| + |C|\) (because there cannot be a member that does not belong to at least one set in \(A\), \(B\), \(C\)).
+Thus\\
+\[ |A \cup B \cup C| \leq |A| + |B| + |C| = 0.2n + 0.25n + 0.3n = 0.75n \]
+The set of people who solved all three problems is  $\overline{A \cup B \cup C}$ , then
+\[ \overline{A \cup B \cup C} = n - |A \cup B \cup C| \geq n - 0.75n = 0.25n \]
+Therefore at least 25\% of the participants solved all three problems.
+
+
+
+\end{enumerate}
+
+\end{document}

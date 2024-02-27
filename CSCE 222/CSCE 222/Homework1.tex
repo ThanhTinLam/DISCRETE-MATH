@@ -1,0 +1,424 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,amsmath,marvosym,wasysym,supertabular}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{adjustbox}
+\setlength{\oddsidemargin}{-0.29in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+\setlength{\textwidth}{7.0in}
+\setlength{\headheight}{0.0in}
+\setlength{\headsep}{0.0in}
+\setlength{\textheight}{8.75in}
+\setlength{\topmargin}{0.0in}
+\def\p{\vskip 4pt}
+\begin{document}
+\fbox{\begin{minipage}{\textwidth}
+    \begin{center}
+      CSCE 222---Spring 2024 \\
+      Homework \#1 \\
+      Name: Thanh Tin Lam\\
+      UIN: $633008457$
+    \end{center}
+    \end{minipage}}
+\vspace{.5cm}
+
+\begin{enumerate}
+\item Which of these sentences are propositions? What is the truth
+  value of those that are propositions?
+
+  \begin{enumerate}
+  \item[1.] Boston is the capital of Massachusetts.\\
+  This sentence is a proposition. The truth value of the proposition is True.\\
+  
+  \item[2.] Miami is the capital of Florida.\\
+  This sentence is a proposition. The truth value of the proposition is False.\\
+  
+  \item[3.] 2+3=5.\\
+    This sentence is a proposition. The truth value of the proposition is True.\\
+    
+  \item[4.] 5+7=10. \\
+  This sentence is a proposition. The truth value of the proposition is False.\\
+  
+  \item[5.] x+2=11.\\
+  This sentence is not a proposition.\\
+  
+  \item[6.] Answer this question.\\
+  This sentence is not a proposition.\\
+  
+  \end{enumerate}
+
+\newpage
+\item Let $p$ and $q$ be the following propositions.
+  \[\boxed{\begin{array}{rl}
+      p: &\text{ I bought a lottery ticket this week.} \\
+      q: &\text{ I won the million dollar jackpot on Friday.}
+    \end{array}}\]
+
+  Express each of these propositions as an English sentence.
+  \begin{enumerate}
+  \item[1.] $\neg$p : I did not buy a lottery ticket this week. \\
+  
+  \item[2.] p $\vee$ q : I either bought a lottery ticket this week or I won the million dollar jackpot on Friday (or both).\\
+  
+  \item[3.] p $\rightarrow$ q : If I bought a lottery ticket this week, then I won the million dollar jackpot on Friday.\\
+
+  \item[4.] p $\wedge$ q : I bought a lottery ticket this week, and I won the million dollar jackpot on Friday.\\
+  
+  \item[5.] p $\longleftrightarrow$ q : I bought a lottery ticket this week if and only if I won the million dollar jackpot on Friday. \\
+  
+  \item[6.] $\neg$p $\rightarrow$ $\neg$q : If I did not buy a lottery ticket this week, then I did not win the million dollar jackpot on Friday.\\
+  
+  \item[7.] $\neg$p $\wedge$ $\neg$q :  I did not buy a lottery ticket this week, and I did not win the million dollar jackpot on Friday.\\ 
+
+  \item[8.] $\neg p \lor (p \land q)$ :  I did not buy a lottery ticket this week or I bought a lottery ticket this week and won the million dollar jackpot on Friday (or both).\\
+
+  \end{enumerate}
+
+\newpage
+\item Let $S$ stand for the statement “Steve is happy” and $G$
+  for “George is happy.”  What English sentences are represented by
+  the following formulas? (How To Prove It, \S 1.1 Ex. 7)
+  \begin{enumerate}
+  \item[1.] \( (S \lor G) \land (\neg S \lor \neg G) \)\\
+  \\
+  Either Steve or George is happy, but one of them is not.\\
+
+  \item[2.] \( (S \lor (G \land \neg S)) \lor \neg G \)\\
+  $\equiv ((S \lor G) \land (S \lor \neg S)) \lor \neg G$\\
+  $\equiv S \lor(G \lor \neg G)$\\
+  \\
+  Steve is happy, or George is either happy or not happy.\\
+
+  \end{enumerate}
+
+\newpage
+\item Let $p$ and $q$ be the following propositions.
+  \[\boxed{\begin{array}{rl}
+      p: & \text{ It is below freezing.} \\
+      q: & \text{ It is snowing.}
+    \end{array}}\]
+
+  Write these propositions using $p$, $q$ and logical connectives.
+  \begin{enumerate}
+  \item[1.] It is below freezing and snowing.\\
+    \(p \land q\)\\
+  \item[2.] It is below freezing but not snowing.\\
+  \(p \land \neg q\)\\
+  \item[3.] It is not below freezing and it is not snowing.\\
+  \(\neg p \land \neg q\)\\
+  \item[4.] It is either snowing or below freezing (or both)\\
+      \(p \lor q\)\\
+  \item[5.] If it is below freezing, it is also snowing.\\
+      \(p \rightarrow q\)\\
+  \item[6.] It is either below freezing or it is snowing, but it is not snowing if it is below freezing.\\
+      \((p \lor q) \land (p \rightarrow \neg q)\)\\
+  \item[7.] That it is below freezing is necessary and sufficient for it to be snowing.\\
+    \(p \longleftrightarrow q\)\\
+  \end{enumerate}
+
+\newpage
+\item Write each of these statements in the form ``\textbf{if} $p$, \textbf{then} $q$'' in English.
+  \begin{enumerate}
+  \item[1.] It is necessary to wash the boss’s car to get promoted.\\
+  
+  - If you want to get promoted, then you need to wash the boss's car.
+\\
+  
+  \item[2.] Winds from the south imply a spring thaw.\\
+  
+  -If the wind come from the south, then there will be the spring thaw.\\
+  
+  \item[3.] A sufficient condition for the warranty to be good is that you bought the computer less than a year ago.\\
+  
+  -If you bought the computer less than a year ago, then the warranty is good\\
+  
+  \item[4.] Willy gets caught whenever he cheats.\\
+  
+  -If Willy cheats, then he gets caught.\\
+
+  \item[5.] You can access the website only if you pay a subscription fee.\\
+  
+  - If you access the website, then you pay a subscription fee..\\
+
+  \item[6.] Getting elected follows from knowing the right people.\\
+  
+  -If you know the right people, then you will get elected.\\
+  
+  \item[7.] Carol gets seasick whenever she is on a boat.\\
+  
+  -If Carol is on a boat, then she gets seasick.\\
+  \end{enumerate}
+
+\newpage
+\item There are exactly two truth environments (assignments)
+  for the variables $M, N, P, Q, R, S$ that satisfy the following
+  formula:
+  
+  \[\underbrace{(\bar{P} \lor Q)}_{\text {clause }(1)} \land \underbrace{(\bar{Q} \lor R)}_{\text {clause }(2)} \land \underbrace{(\bar{R} \lor S)}_{\text {clause }(3)} \land \underbrace{(\bar{S} \lor P)}_{\text {clause (4) }} \land\, M \land \bar{N}\]
+
+  \begin{enumerate}
+  \item[1.] This claim could be proved by truth-table. How many rows would the truth table have? \\
+  
+  - There are 64 rows for truth table.$(2^6)$ \\
+  \item[2.] Instead of a truth-table, prove this claim with an argument by cases according to the truth value of P. Hint: The formula is in CNF, so for the formula to be T, each clause must be true. Can you figure out the assignments to M, N, Q, R, S when P is set to T,and when P is set to F?\\
+  
+  - Case 1: When P is T.\\
+    Clause 1 is True, then Q must be T.\\
+    Clause 2 is True, then R must be T (because Q is T).\\
+    Clause 3 is True, then S must be T (because R is T).\\
+    Clause 4 is True, then P must be T (because S is T).\\
+    M is T , and N is F (negation)\\
+    Therefore, M = P = Q = R = S = P = True , N = False .\\
+    \\
+    - Case 2: When P is F.\\
+    Clause 4 is True, then $\overline{S}$ is T, thus S is F.\\
+    Clause 3 is True, then $\overline{R}$ is T, thus R is F.\\
+    Clause 2 is True, then $\overline{Q}$ is T, thus Q is F.\\
+    Therefore, M = True, P = Q = R = S = N = False.\\
+    
+  
+  
+  
+  \end{enumerate}
+
+\newpage
+\item The five-variable propositional formula
+  \[P ::=(A \land B \land \bar{C} \land D \land \bar{E}) \lor (\bar{A} \land B \land \bar{C} \land \bar{E})\]
+
+  is in Disjunctive Normal Form with two ``AND-of-literal'' clauses.
+  \begin{enumerate}
+
+  \item[1.] Find a full Disjunctive Normal Form that is equivalent to P , and explain your reasoning.\\
+  \begin{proof}
+      -The formula consists of two main clauses connected by a disjunction $(\lor)$.\\
+      -The first clause, $(A \land B \land \bar{C} \land D \land \bar{E})$ is a conjunction of five literals.\\
+      -The second clause, $(\bar{A} \land B \land \bar{C} \land \bar{E})$ is a conjunction of 4 literals.\\
+      -Both clauses share the term ($B \land \bar{C} \land \bar{E})$, so we will consider the remaining clauses: $(A \land D) \lor (\Bar{A})$\\
+      -Full disjunctive normal form if each of its variables appears exactly once in every conjunction and each conjunction appears at most once. Thus, we will have 2 cases for $\Bar{A}$ : ($\Bar{A} \land D)$ ; ($\Bar{A} \land \Bar{D}$)\\
+      - Therefore, full Disjunctive Normal Form that is equivalent to P is :\\
+      
+        $(A \land B \land \bar{C} \land D \land \bar{E}) \lor (\Bar{A} \land B \land \bar{C} \land D \land \bar{E}) \lor (\Bar{A} \land B \land \bar{C} \land \Bar{D} \land \bar{E})$
+  \end{proof}
+  \item[2.] Let C be a full Conjunctive Normal Form that is equivalent to P. Assume that C has been simplified so that none of its “OR-of-literals” clauses are equivalent to each other. How many clauses are there in C?\\
+  \begin{proof}
+    - We have 5 literals, so we have $(2^5)$ = 32 cases able to happen.\\
+    - We have 3 cases in full Disjunctive Normal Form giving True results. This means there will be 29 cases with False results.\\
+    - Converting DNF to CNF involves De Morgan's Law: $\neg(A \lor D) = \bar{A} \land \bar{D}$.\\
+    - Flip all "OR"s and "AND"s and negate all literals.\\
+    - Then, we have 29 clause in C that satisfy a full Conjunctive Normal Form.
+    
+  \end{proof}
+  
+  \end{enumerate}
+
+\newpage
+\item For which values of $p$, $q$, and $r$ is the following logical
+  expression true?
+  \begin{enumerate}
+  \item $(\neg p \lor q) \land (q \rightarrow r) \land (\neg r \lor p)$\\
+  
+    For a logical expression to be true, each clause must be true.\\
+    Case 1: Assume p is true, then q must be true. Hence, r is also true.\\
+    Case 2: Assume p is false, then r must be false. Hence, q is false.\\
+    Therefore, p, q, and are must either be all true or all false.\\
+    \\
+  
+  \item Show that the following two expressions aren’t logically equivalent:\\
+  $(p \rightarrow q) \land r$ and $p \rightarrow (q \land r)$\\
+  
+  Consider first expression:\\
+  r must be true\\
+  If $p \rightarrow q$ is true, then there are 3 possible cases for the clause to be true: (p = T, q = T), (p = F, q = T), (p = F, q = F).\\
+  
+  Consider second expression:\\
+  Let r is false, p is false, and q is true. Hence, the second expression is true.\\ 
+  But, this leads to a value conflict with the first expression (first expression is false with r = F, p = F, and q = T). Because expressions A and B are logically equivalent if they evaluate to the same value in “all possible worlds”.
+
+  Therefore, two expression aren't logically equivalent.
+
+
+  \end{enumerate}
+
+\newpage
+\item Simplify the following propositions as much as possible.
+  \begin{enumerate}
+  \item $(\neg p \rightarrow q) \land (q \land p \rightarrow \neg p)
+$\\
+    $ \equiv (\neg(\neg p ) \lor q) \land (\neg (p \land q ) \lor \neg p)$ \qquad  by the truth table for implies\\
+    $ \equiv (p \lor q) \land (\neg p \lor \neg q \lor \neg p)$   \qquad  by De Morgan law\\
+    $ \equiv (p \lor q) \land (\neg p \lor \neg q)$ \qquad by idempotent laws\\
+    $ \equiv (p \lor q) \land \neg (p \land q)$ \qquad by De Morgan law\\
+    $\equiv p \oplus q$ \qquad by the truth table.
+    
+  \item $(p \rightarrow \neg p) \rightarrow ((q \rightarrow (p \rightarrow p)) \rightarrow p)$ \qquad \\
+    $\equiv (\neg p \lor \neg p) \rightarrow ((q \rightarrow T) \rightarrow p)$ \qquad by truth table\\
+    $\equiv \neg p \rightarrow ( T \rightarrow p)$ \qquad by idempotent laws\\
+    $\equiv \neg p \rightarrow p$ \qquad by truth table\\
+    $\equiv \neg (\neg p) \lor p$ \qquad by truth table for implies \\
+    $\equiv p$ \qquad double negation laws.\\
+
+  \item $(p \rightarrow p) \rightarrow (\neg p \rightarrow \neg p) \land q$ \qquad \\
+  $\equiv T \rightarrow (T \land q)$ \qquad by the truth table for implies\\
+  $\equiv T \rightarrow q$ \qquad by the identity laws\\
+  $\equiv q$ \qquad by the truth table for implies\\
+  
+  \item ``Every proposition over the single variable \( p \) is either logically equivalent to \( p \) or it is logically equivalent to \( \neg p \)."\\
+  The following claim is correct. Because every proposition only accepts 1 of 2 values: True or False\\
+
+  \end{enumerate}
+
+\newpage
+\item What is $X$ in the compound proposition below? Explain
+  your reasoning. No points will be given without correct reasoning.
+  \[ (\neg p \land (\neg q \rightarrow p)) \rightarrow X\]\\
+  \\
+  \begin{proof}
+      \(X \text{ in the compound proposition } (\neg p \land (\neg q \rightarrow p)) \rightarrow X \text{ is logically equivalent to } q.\) 
+\\
+
+\[
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$p$  & $q$ & $\neg q$ & $\neg p$ &$\neg q\rightarrow p$ &$\neg p \land (\neg q \rightarrow p)$ & $\neg p \land (\neg q \rightarrow p) \rightarrow q$  \\
+\hline
+T & T & F & F & T & F & T \\
+\hline
+T & F & T & F & T & F & T\\
+\hline
+F & T & F & T & T & T & T\\
+\hline
+F & F & T & T & F & F & T\\
+\hline
+\end{tabular}
+\]\\
+\\
+
+To make the entire proposition true, \(X\) should logically follow from \( (\neg p \land (\neg q \rightarrow p)) \). The only way this can be true is if \(X\) is equivalent to \( q \), because q and combining it with the previous conditions ensures the truth of the entire proposition.
+  \end{proof}
+      
+ 
+
+
+
+
+\newpage
+\item Use a truth table to determine for which truth values
+  of $p$, $q$, and $r$
+  \[(\neg (p \land (q \lor r))) \;\longleftrightarrow\; ((\neg p \lor \neg q) \land (\neg p \lor \neg r))\] 
+  is true.\\
+  \\
+  \[
+\begin{adjustbox}{width=1\textwidth}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $r$ & $p \lor (q \lor r)$ & $\neg p$ & $\neg q$ & $\neg r$ & $p \land (q \lor r)$ & $\neg(p \land (q \lor r))$ & $\neg p \lor \neg q$ & $\neg p \lor \neg r$ & $(\neg p \lor \neg q) \land (\neg p \lor \neg r)$ & $\neg(p \land (q \lor r)) \leftrightarrow ((\neg p \lor \neg q) \land (\neg p \lor \neg r))$ \\
+\hline
+True & True & True & True & False & False & False & True & False & False & False & False & True \\
+True & True & False & True & False & False & True & True & False & False & True & False & True \\
+True & False & True & True & False & True & False & True & False & True & False & False & True \\
+True & False & False & False & False & True & True & False & True & True & True & True & True \\
+False & True & True & True & True & False & False & False & True & True & True & True & True \\
+False & True & False & True & True & False & True & False & True & True & True & True & True \\
+False & False & True & True & True & True & False & False & True & True & True & True & True \\
+False & False & False & False & True & True & True & False & True & True & True & True & True \\
+\hline
+\end{tabular}
+}
+\end{adjustbox}\\
+\]
+
+
+\newpage
+\item Show that the conclusion
+  \[(p \rightarrow (q \rightarrow r)) \rightarrow (p \rightarrow r)\]
+  follows from the premise $p \rightarrow q$.\\
+  \begin{proof}
+      We'll use the hint provided to express the conclusion in terms of implications.\\
+    
+1. Start with the premise: \( p \rightarrow q \)\\
+    This means that " if p is true, then q is true ".\\
+2. Use the hint to express \( (p \rightarrow q) \rightarrow (p \rightarrow r) \):\\
+    This means that "if $(p \rightarrow q)$ is true, then $(p \rightarrow r)$ is true."\\
+  - According to the hint, this expression is equivalent to \( p \rightarrow (q \rightarrow r) \)\\
+3. Now, we want to show \( (p \rightarrow (q \rightarrow r)) \rightarrow (p \rightarrow r) \):\\
+This expression states that " if $(p \rightarrow (q \rightarrow r))$ is true, then $ (p \rightarrow r)$ is true."\\
+    From the previous proof shows us the value of $(p \rightarrow (q \rightarrow r))$ and  $ (p \rightarrow r)$ are true. Hence, this expression is true.\\
+     Therefore, we showed that the conclusion \[(p \rightarrow (q \rightarrow r)) \rightarrow (p \rightarrow r)\]
+  follows from the premise $p \rightarrow q$.\\
+  \\
+  \[
+\begin{array}{|c|c|c|c|c|c|c|}
+\hline
+p & q & r & p \rightarrow q & q \rightarrow r & p \rightarrow r & (p \rightarrow q) \rightarrow ((p \rightarrow (q \rightarrow r)) \rightarrow (p \rightarrow r)) \\
+\hline
+\text{True} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} &  \text{True} \\
+\text{True} & \text{True} & \text{False} & \text{True} & \text{False} & \text{False} &  \text{True} \\
+\text{True} & \text{False} & \text{True} & \text{False} & \text{True} & \text{True} &  \text{True} \\
+\text{True} & \text{False} & \text{False} & \text{False} & \text{True} & \text{False} & \text{True} \\
+\text{False} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} \\
+\text{False} & \text{True} & \text{False} & \text{True} & \text{False} & \text{True} & \text{True} \\
+\text{False} & \text{False} & \text{True} & \text{True} & \text{True} & \text{True} &  \text{True} \\
+\text{False} & \text{False} & \text{False} & \text{True} & \text{True} & \text{True} &  \text{True} \\
+\hline
+\end{array}
+\]
+
+
+  \end{proof}
+  
+\newpage
+\item Using a truth table show that
+  \[(( p \rightarrow q) \land (q \rightarrow r)) \rightarrow ( p \rightarrow r)\] 
+  is a tautology.\\
+  \\
+  \[
+\begin{array}{|c|c|c|c|c|c|c|c|}
+\hline
+p & q & r & p \rightarrow q & q \rightarrow r & p \rightarrow r & (p \rightarrow q) \land (q \rightarrow r) & ((p \rightarrow q) \land (q \rightarrow r)) \rightarrow (p \rightarrow r) \\
+\hline
+\text{True} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} \\
+\text{True} & \text{True} & \text{False} & \text{True} & \text{False} & \text{False} & \text{False} & \text{True} \\
+\text{True} & \text{False} & \text{True} & \text{False} & \text{True} & \text{True} & \text{False} & \text{True} \\
+\text{True} & \text{False} & \text{False} & \text{False} & \text{True} & \text{False} & \text{False} & \text{True} \\
+\text{False} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} \\
+\text{False} & \text{True} & \text{False} & \text{True} & \text{False} & \text{True} & \text{False} & \text{True} \\
+\text{False} & \text{False} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} \\
+\text{False} & \text{False} & \text{False} & \text{True} & \text{True} & \text{True} & \text{True} & \text{True} \\
+\hline
+\end{array}
+\]
+
+
+\newpage
+\item \textbf{Errors in reasoning}. Show using a counter example that
+  the following arguments are invalid.
+  \begin{enumerate}
+  \item a) (2 \text{ points}) \text{ Converse Error.}
+
+\begin{enumerate}
+    \item[(a)] If $x \geq 2$, then $x \geq 0$.
+    \item[(b)] Therefore, $x \geq 0 \Rightarrow x \geq 2$.\\
+    \begin{proof} If $x \geq 0$, it does not necessarily mean that $x \geq 2$.\\
+Counterexample: Let $x = 1$. Hence, $1 \geq 0$, but $1 < 2$.\\
+Therefore, the argument is invalid.
+\end{proof}
+\end{enumerate}\\
+
+  \item (2 \text{ points}) \text{ Inverse Error.}
+\begin{enumerate}
+    \item[(a)] If $x \geq 2$, then $x \geq 0$.
+    \item[(b)] Therefore, $x \ngeq 2 \Rightarrow x \ngeq 0$.\\
+    \begin{proof}
+    If $x \ngeq 2$, it does not necessarily mean that $x \ngeq 0$.\\
+Counterexample: Let $x = 1$. Hence, $1 < 2$, but $1 > 0$.\\
+Therefore, the argument is invalid.
+\end{proof}
+\end{enumerate}
+
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}

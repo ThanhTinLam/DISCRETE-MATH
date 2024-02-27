@@ -1,0 +1,533 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{exercise}{Exercise}
+\newtheorem{definition}{Definition}
+
+\title{\textbf{MATHEMATICAL LOGIC}}
+\author{ Thanh Tin Lam}
+\date{ 19 October 2023}
+
+\begin{document}
+\maketitle
+\vspace{2cm}
+\section{An introduction to Set Theory}
+    \subsection{A soft introduction to topology}
+    % 1.1 a soft introduction
+    \hspace{8mm} The concept of soft sets was first introduced by Molodtsov in 1999 as a general mathematical tool for dealing with uncertain objects. Molodtsov successfully applied the soft theory in several directions, such as smoothness of functions, game theory, operations research, Riemann integration, Perron integration, probability, theory of measurement, and so on.\\
+     
+    \hspace{4mm} Topology is a fascinating field in mathematics that explores the fundamental properties of spaces and their underlying structure, without relying on notion of distance or measurement. It's like the geometry of flexibility, where the key idea is continuity and proximity. In essence, topology is the study of properties that remain unchanged under continuous deformations, like stretching, bending, and twisting.\\
+     
+    \hspace{4mm} One of the central concepts in topology is that of open sets. Topologists analyze how these sets interact to define open the closed spaces, connectedness, compactness, and convergence. Topology helps us understand the concept of "closeness" in a more abstract way and provides a powerful framework for studying shapes, and their transformation.
+    
+
+\begin{definition}
+\textbf{Topological space}. Let $X$ be a set. A collection $\mathcal{O}$ of subsets of $X$ is called a topology on the set $X$ if the following properties are satisfied:
+\begin{enumerate}
+  \item[($\tau_1$)] $\varnothing \in \mathcal{O}$ and $X \in \mathcal{O}$.
+  \item[($\tau_2$)] For all $A, B \in \mathcal{O}$, we have $A \cap B \in \mathcal{O}$ (stability under intersection).
+  \item[($\tau_3$)] For all index sets $I$, and for all collections $\{U_i\}_{i\in I}$ of elements of $\mathcal{O}$ (i.e., $U_i \in \mathcal{O}$ for all $i \in I$), we have
+    \[
+    \bigcup_{i\in I} U_i \in \mathcal{O}
+    \]
+    (stability under arbitrary unions).
+\end{enumerate}
+A set $X$ equipped with a topology $\mathcal{O}$ is called a topological space, and the sets in $\mathcal{O}$ are called open sets.
+\end{definition}
+
+\begin{exercise}
+    Let $X$ be a set and $\mathcal{O}$ be a topology on $X$. Demonstrate that $\mathcal{O}$ is stable under finite intersections.\\
+    \begin{proof}
+
+Let $X$ be a set and $\mathcal{O}$ be a topology on $X$. To show that $\mathcal{O}$ is stable under finite intersections, we will use mathematical induction.\\
+
+\textbf{Base case} ($n=1$):
+We will start with the base case, which is $n=1$. In this case, we will take a single set $U_1$ from $\mathcal{O}$ and want to show that $U_1$ is in $\mathcal{O}$.
+
+\begin{itemize}
+    \item Since $U_1$ is in $\mathcal{O}$, it is an open set in the topology $\mathcal{O}$.
+    \item This is a trivial case since any set in the topology $\mathcal{O}$ is an open set, so $U_1$ is indeed in $\mathcal{O}$.
+\end{itemize}
+
+\textbf{Inductive step}:
+Now, we will assume that for some positive integer $k \geq 1$, the statement is true for $n = k$. In other words, we assume that if it has $k$ sets $U_1, U_2, \ldots, U_k$ from $\mathcal{O}$, their intersection $\bigcap_{i=1}^{k} U_i$ is also in $\mathcal{O}$.
+
+We need to prove that the statement is also true for $n = k+1$. That is, if it has $k+1$ sets $U_1, U_2, \ldots, U_k, U_{k+1}$ from $\mathcal{O}$, their intersection $\bigcap_{i=1}^{k+1} U_i$ is also in $\mathcal{O}$.
+
+\begin{itemize}
+    \item By the induction hypothesis, it is known that $\bigcap_{i=1}^{k} U_i$ is in $\mathcal{O}$ because it is assumed for $k$ sets.
+    \item Now, consider the intersection of $\bigcap_{i=1}^{k} U_i$ with $U_{k+1}$, that is, $\left(\bigcap_{i=1}^{k} U_i\right) \cap U_{k+1}$.
+    \item Since both $\left(\bigcap_{i=1}^{k} U_i\right)$ and $U_{k+1}$ are in $\mathcal{O}$ (by induction and the fact that $U_{k+1}$ is an open set), their intersection $\left(\bigcap_{i=1}^{k} U_i\right) \cap U_{k+1}$ is also in $\mathcal{O}$.
+\end{itemize}
+
+This completes the inductive step, showing that if the statement is true for $k$ sets, it is also true for $k+1$ sets.
+
+Therefore, the topology $\mathcal{O}$ is stable under finite intersections.
+
+\end{proof}
+\end{exercise}
+\begin{exercise}
+      Let $X$ be a set.
+    \begin{enumerate}
+    
+    \item Consider the set $\mathcal{O}_{\text{trivial}} = \{\emptyset, X\}$. Prove that $\mathcal{O}_{\text{trivial}}$ is a topology on $X$.\\
+
+    \item Consider the set $\mathcal{O}_{\text{discrete}} = \mathcal{P}(X)$. Is $\mathcal{O}_{\text{discrete}}$ a topology on $X$? Justify your answer briefly.
+    \end{enumerate}
+
+    \begin{proof}
+    \begin{enumerate}
+         
+        \item We need to prove that $\mathcal{O}_{\text{trivial}}$ is a topology on $X$ by checking the three properties in Definition 1:
+
+    ($\tau_1$) $\emptyset$ is in $\mathcal{O}_{\text{trivial}}$, and $X$ is also in $\mathcal{O}_{\text{trivial}}$, c
+
+    ($\tau_2$) Let $A$ and $B$ be two sets in $\mathcal{O}_{\text{trivial}}$, which means $A=\emptyset$ or $A=X$, and $B=\emptyset$ or $B=X$. In either case, the intersection $A \cap B$ is either $\emptyset$ or $X$, which is in $\mathcal{O}_{\text{trivial}}$. So, ($\tau_2$) is satisfied.
+
+    ($\tau_3$) Let $\{U_i\}$ be a collection of elements from $\mathcal{O}_{\text{trivial}}$. This means each $U_i$ is either $\emptyset$ or $X$. 
+So, ($\tau_3$) is satisfied.
+
+Since all three properties are satisfied, $\mathcal{O}_{\text{trivial}}$ is indeed a topology on $X$.
+
+
+    \item Consider the topology $\mathcal{O}_{\text{discrete}} = \mathcal{P}(X)$, which is the power set of $X$, i.e., it contains all possible subsets of $X$.
+
+($\tau_1$) The empty set $\emptyset$ is in $\mathcal{O}_{\text{discrete}}$ since it is a subset of $X$. Additionally, $X$ is also in $\mathcal{O}_{\text{discrete}}$ because the power set always contains the entire set. So, ($\tau_1$) is satisfied for $\mathcal{O}_{\text{discrete}}$.
+
+($\tau_2$) Let $A$ and $B$ be two sets in $\mathcal{O}_{\text{discrete}}$, which means both $A$ and $B$ are subsets of $X$. The intersection $A \cap B$ is also a subset of $X$, so ($\tau_2$) is satisfied.
+
+($\tau_3$) Let $\{U_i\}$ be a collection of elements from $\mathcal{O}_{\text{discrete}}$, which means each $U_i$ is a subset of $X$. The union of these sets $\{U_i\}$ is also a subset of $X$, so ($\tau_3$) is satisfied.
+
+So, $\mathcal{O}_{\text{discrete}}$ satisfies all three properties, and therefore, it is a topology on $X$.
+\end{enumerate}
+
+    \end{proof}
+\end{exercise}
+
+    \begin{exercise}
+        Let $X$ be a set. Let $O_1$ be a topology on $X$ and $O_2$ be another topology on $X$. Consider the collection of subsets of $X$, denoted $O_1 \cap O_2$, defined as
+
+\[
+O_1 \cap O_2 = \{A \subseteq X : A \in O_1 \text{ and } A \in O_2\}.
+\]
+
+Show that the collection $O_1 \cap O_2$ is a topology on $X$.
+
+    \begin{proof}
+        To show that $O_1 \cap O_2$ is a topology on $X$, we need to show that it satisfies the three properties:
+
+($\tau_1$) $\emptyset$ and $X$ are both in $O_1$ and $O_2$, so they are both in $O_1 \cap O_2$. So ($\tau_1$) is satisfied.
+
+($\tau_2$) Let $A$ and $B$ be two sets in $O_1 \cap O_2$. Then $A$ and $B$ are both in $O_1$ and $O_2$, so $A \cap B$ is in $O_1$ and $O_2$, which means that $A \cap B$ is in $O_1 \cap O_2$. So ($\tau_2$) is satisfied.
+
+($\tau_3$) Let $\{U_i\}_{i\in I}$ be a collection of sets in $O_1 \cap O_2$. Then each $U_i$ is in $O_1$ and $O_2$, so $\bigcup_{i\in I} U_i$ is in $O_1$ and $O_2$, which means that $\bigcup_{i\in I} U_i$ is in $O_1 \cap O_2$. So ($\tau_3$) is satisfied.
+
+Since all three properties are satisfied, $O_1 \cap O_2$ is a topology on $X$.
+    \end{proof}
+    \end{exercise}
+
+
+    \begin{exercise}
+        \textbf{1.}  Let $X$ be a set. Let $A$, $B$, and $Y$ be subsets of $X$. Show that
+\[(A \cup B) \cap Y = (A \cap Y) \cup (B \cap Y).\]
+
+    \textbf{2.}  Let $I$ be an index set, and let $(A_i)_{i \in I}$ be a collection of subsets of $X$, and $Y \subseteq X$. Show that
+\[
+\biggl(\bigcup_{i \in I} A_i\biggr) \cap Y = \bigcup_{i \in I} (A_i \cap Y).
+\]
+
+    \textbf{3.}  Let $O$ be a topology on $X$ , and $Y \subseteq X$. Consider the collection of subsets of $X$, denoted as $O_Y$, defined as
+\[
+O_Y = \{A \subseteq X : A = B \cap Y \text{ for some } B \in O\}.
+\]
+Show that the collection $O_Y$ is a topology on $Y$.
+
+    \begin{proof}
+    \begin{enumerate}
+        
+    
+        \item \[(A \cup B) \cap Y = (A \cap Y) \cup (B \cap Y).\]\\
+        + $(A \cap Y) \cup (B \cap Y) \subseteq (A \cup B) \cap Y$.
+
+    Take an arbitrary element $x$ from $(A \cap Y) \cup (B \cap Y)$. This means $x$ is in either $A \cap Y$ or $B \cap Y$.
+
+    - If $x$ is in $A \cap Y$, then it is both in $A$ and in $Y$. Since it is in $Y$, it will also be in $(A \cup B) \cap Y$ because it is in $A$.
+
+    - If $x$ is in $B \cap Y$, then it is both in $B$ and in $Y$. Since it is in $Y$, it will also be in $(A \cup B) \cap Y$ because it is in $B$.
+
+    So, any element in $(A \cap Y) \cup (B \cap Y)$ is also in $(A \cup B) \cap Y$, and we have shown the inclusion.
+
+    + $(A \cup B) \cap Y \subseteq (A \cap Y) \cup (B \cap Y)$.
+
+    Take an arbitrary element $x$ from $(A \cup B) \cap Y$. This means $x$ is in both $(A \cup B)$ and $Y$.
+
+    - If $x$ is in $A \cup B$, it means $x$ is in either $A$ or $B$. In either case, $x$ will be in $(A \cap Y)$ or $(B \cap Y)$ because it is in $A$ or $B$, and it is also in $Y$.\\
+    So, any element in $(A \cup B) \cap Y$ is also in $(A \cap Y) \cup (B \cap Y)$, and we have shown the inclusion.
+
+    Since we've shown both inclusions, the proof is completed.
+
+        \item We want to prove that
+Let's prove the given statement:
+\[ (\cup_{i\in I} A_i) \cap Y = \cup_{i\in I} (A_i \cap Y) \]
+
+Let \( x \) be an element in \( (\cup_{i\in I} A_i) \cap Y \). This means that \( x \) is in the union of sets \( A_i \) for some \( i \), and it is also in set \( Y \).
+\[ x \in (\cup_{i\in I} A_i) \cap Y \]
+
+By the definition of intersection, this implies that \( x \) is in both \( \cup_{i\in I} A_i \) and \( Y \). Therefore, there exists an \( i \) such that \( x \in A_i \) and \( x \in Y \).
+\[ x \in A_i \cap Y \]
+
+Now, \( x \) is in the intersection of \( A_i \) and \( Y \) for some \( i \), therefore \( x \) is in the union of all such intersections for all \( i \) in \( I \).
+\[ x \in \cup_{i\in I} (A_i \cap Y) \]
+
+So, we have shown that any element in \( (\cup_{i\in I} A_i) \cap Y \) is also in \( \cup_{i\in I} (A_i \cap Y) \).
+
+Now, let \( x \) be an element in \( \cup_{i\in I} (A_i \cap Y) \). This means that \( x \) is the union of sets \( A_i \cap Y \) for some \( i \).
+\[ x \in \cup_{i\in I} (A_i \cap Y) \]
+
+By the definition of union, this implies that \( x \) is in \( A_i \cap Y \) for some \( i \). Therefore, \( x \) is in both \( A_i \) and \( Y \).
+\[ x \in A_i \cap Y \]
+
+Now, \( x \) is in the intersection of \( A_i \) and \( Y \) for some \( i \). Therefore, \( x \) is in the union of all such intersections for all \( i \) in \( I \), and consequently, in \( (\cup_{i\in I} A_i) \cap Y \).
+\[ x \in (\cup_{i\in I} A_i) \cap Y \]
+
+So, we have shown that any element in \( \cup_{i\in I} (A_i \cap Y) \) is also in \( (\cup_{i\in I} A_i) \cap Y \).
+
+Therefore, we have shown both inclusions, and the equality holds:
+\[ (\cup_{i\in I} A_i) \cap Y = \cup_{i\in I} (A_i \cap Y) \]
+
+
+
+    \item \textbf{Property 1}: The empty set and the whole space are in $\mathcal{O}_Y$:
+
+Since $Y$ is a topology on $X$, we have $Y \in \mathcal{O}_Y$. Also, $X \cap Y = Y$, and since $X$ is in the topology on $X$, $X \in \mathcal{O}_Y$. Therefore, $\mathcal{O}_Y$ satisfies Property 1.
+
+\textbf{Property 2}: The intersection of any finite number of sets in $\mathcal{O}_Y$ is in $\mathcal{O}_Y$:
+
+Let us take a finite collection of sets from $\mathcal{O}_Y$, say $A_1, A_2, \ldots, A_n$, where $A_i = B_i \cap Y$ and $B_i$ is in the topology on $X$.
+
+We want to show that their intersection is in $\mathcal{O}_Y$.
+
+Expressing each $A_i$ as $A_i = B_i \cap Y$, we have:
+
+$A_1 \cap A_2 \cap \ldots \cap A_n = (B_1 \cap Y) \cap (B_2 \cap Y) \cap \ldots \cap (B_n \cap Y)$
+
+By applying Property 2 for finite intersections, we can see that this is equivalent to:
+
+$(B_1 \cap B_2 \cap \ldots \cap B_n) \cap Y = C \cap Y$, where $C$ is in the topology on $X$.
+
+Therefore, the intersection of $A_1, A_2, \ldots, A_n$ is in $\mathcal{O}_Y$.
+
+\textbf{Property 3}: The union of any collection of sets in $\mathcal{O}_Y$ is in $\mathcal{O}_Y$.
+
+Let us take an arbitrary collection of sets from $\mathcal{O}_Y$, say $D_i$ for $i \in I$, where $D_i = B_i \cap Y$ and $B_i$ is in the topology on $X$.
+
+We want to show that their union is in $\mathcal{O}_Y$.
+
+Expressing each $D_i$ as $D_i = B_i \cap Y$, we can write the union as:
+
+$\bigcup_{i \in I} D_i = \bigcup_{i \in I} (B_i \cap Y)$
+
+By applying Property 3 for countable unions, this is equivalent to:
+
+$(\bigcup_{i \in I} B_i) \cap Y = E \cap Y$, where $E$ is the topology on $X$. Therefore, the union of $D_i$ is in $\mathcal{O}_Y$.
+
+Since we have shown that $\mathcal{O}_Y$ satisfies all the three properties of a topology, $\mathcal{O}_Y$ is a topology on $Y$.
+
+
+    
+    \end{enumerate}
+        
+    \end{proof}
+        
+    \end{exercise}
+    %A soft introduction to measure theory
+    \subsection{A soft introduction to measure theory}
+
+    \begin{definition}
+        ( $\sigma$-algebra). Let $X$ be a set. A collection $\mathcal{M}$ of subsets of $X$ is called a $\sigma$-algebra if the following properties are satisfied:
+\begin{enumerate}
+\item[$(\Sigma 1)$] $X \in \mathcal{M}$.
+\item[$(\Sigma 2)$] For all $A \in \mathcal{M}$, we have $X \setminus A \in \mathcal{M}$ (stability under complementation).
+\item[$(\Sigma 3)$] For all countable collections $\{A_n\}_{n\in\mathbb{N}}
+$ of elements in $\mathcal{M}$ (i.e., $A_n \in \mathcal{M}$ for all $n \in \mathbb{N}$), we have $\bigcup_{n=1}^{\infty} A_n \in \mathcal{M}$ (stability under countable unions).
+\end{enumerate}
+
+A set $X$ equipped with a $\sigma$-algebra $\mathcal{M}$ is called a measure space, and the sets in $\mathcal{M}$ are called measurable sets. In Exercises 1 and 2, we describe some simple examples of $\sigma$-algebras.
+    \end{definition}
+% exercise 4
+
+    \begin{exercise}
+        Let $X$ be a set.
+
+(1) Consider $M_{\text{trivial}} = \{\emptyset, X\}$. Prove that $M_{\text{trivial}}$ is a $\sigma$-algebra on $X$.
+
+(2) Consider $M_{\text{discrete}} = \mathcal{P}(X)$. Is $M_{\text{discrete}}$ a $\sigma$-algebra on $X$? Justify briefly your answer.
+
+    \begin{proof}
+    \begin{enumerate}
+    
+    
+    \item  The trivial power set is a $\sigma$-algebra on $X$ because:
+
+i) It contains the whole set, i.e., $X \in \mathcal{M}_{\text{trivial}}$.
+
+ii) $\text{For all } A \in \mathcal{M}_{\text{trivial}}, \text{ if } X \setminus A \in \mathcal{M}_{\text{trivial}}$:
+
+$\text{Consider } A = \emptyset.
+\text{ Then } X \setminus \emptyset = X \text{ and } X \in \mathcal{M}_{\text{trivial}}.\\
+\text{Consider } A = X.
+\text{ Then } X \setminus X = \emptyset \text{ and } \emptyset \in \mathcal{M}_{\text{trivial}}.\\
+\text{Therefore, } \mathcal{M}_{\text{trivial}} \text{ is stable under complementation.}$
+
+
+iii) $\text{For all countable collections } \{ A_n \}_{n=1}^{\infty} \text{ of elements in } \mathcal{M}_{\text{trivial}}, \text{ if } \bigcup_{n=1}^{\infty} A_n \in \mathcal{M}_{\text{trivial}}$:
+
+$\text{Consider any countable collection } \{ A_n \} \text{ where each } A_n \text{ is either } \emptyset \text{ or } X$.\\
+$\text{The union of such sets is either } \emptyset \text{ or } X.
+\text{Therefore, } \bigcup_{n=1}^{\infty} A_n \text{ is in } \mathcal{M}_{\text{trivial}}$.
+
+
+    \item  $M_{\text{discrete}}$ is a $\sigma$-algebra on $X$ because:
+
+i) $\emptyset$ and $X$ are both in $\mathcal{M}$ since they are both subsets of $X$.
+
+ii) If $A \in M_{\text{discrete}}$, then $X \setminus A$ is also in  $M_{\text{discrete}}$ since it is the complement of a subset of $X$.
+
+iii)The discrete $\sigma$-algebra on $X$, denoted as \(M_{\text{discrete}} = \mathcal{P}(X)\), where \(\mathcal{P}(X)\) is the power set of \(X\), satisfies the properties of a $\sigma$-algebra.
+
+For all subsets \(A_i\), the arbitrary union must be in \(M_{\text{discrete}}\), since \(\mathcal{P}(X)\) contains all subsets of \(X\).
+
+Thus, \(M_{\text{discrete}}\) is a $\sigma$-algebra on \(X\).
+
+
+\end{enumerate} 
+    \end{proof}
+    \end{exercise}
+% Exercise 6
+    \begin{exercise}
+        Let $X$ be a set, and let $A$ be a non-empty proper subset of $X$ (i.e., $\emptyset \subset A \subset X$). Show that $\mathcal{M} = \{\emptyset, A, X \setminus A, X\}$ is a $\sigma$-algebra on $X$.
+
+    \begin{proof}
+    \begin{enumerate}
+    \item  Clearly, $X \in \mathcal{M}$.
+    \item Consider the four possible sets in \(M\): \(\emptyset\), \(A\), \(X \backslash A\), and \(X\).
+For each of them, the complement is also in \(M\): \(X \backslash \emptyset = X\), \(X \backslash A = X \backslash A\), \(X \backslash (X \backslash A) = A\), and \(X \backslash X = \emptyset\).\\
+Therefore, property (2) holds.
+
+    \item Let $\{A_1, A_2, \ldots\}$ be a countable collection of sets in $\mathcal{M}$. Then the union of those sets will be either $\emptyset$, $A$, $X \setminus A$, or the entire set $X$.
+
+- If $\bigcup_{n=1}^\infty A_n = \emptyset \in \mathcal{M}$, then $\bigcup_{n=1}^\infty A_n \in \mathcal{M}$.\\
+- If $\bigcup_{n=1}^\infty A_n = A \in \mathcal{M}$, then $\bigcup_{n=1}^\infty A_n \in \mathcal{M}$.\\
+- If $\bigcup_{n=1}^\infty A_n = X \setminus A \in \mathcal{M}$, then $\bigcup_{n=1}^\infty A_n \in \mathcal{M}$.\\
+- If $\bigcup_{n=1}^\infty A_n = X \in \mathcal{M}$, then $\bigcup_{n=1}^\infty A_n \in \mathcal{M}$.\\
+
+Therefore, the countable union of members of $\mathcal{M}$ is again a member of $\mathcal{M}$.
+
+From the above three conditions, we can conclude that $\mathcal{M}$ is a $\sigma$-algebra on $X$.
+
+\end{enumerate}
+    \end{proof}
+    \end{exercise}
+%Exercise 7
+    \begin{exercise}
+        Let $X$ be a set, and let $\mathcal{M}$ be a $\sigma$-algebra on $X$. Show that $\mathcal{M}$ is stable under finite unions.
+    \begin{proof}
+        To demonstrate the stability of a $\sigma$-algebra $\mathcal{A}'$ on a set $X$ under finite unions, we need to show that for any finite collection of elements $\{A_n\}$ for $1 \leq n \leq k$ in $\mathcal{A}'$, the union of these elements also belongs to $\mathcal{A}'$.
+
+    In other words, we aim to prove that for any finite collection of sets $A_n$, where $1 \leq n \leq k$, we have:
+
+\[
+\bigcup_{n=1}^{k} A_n \in \mathcal{A}'
+\]
+
+    Start with the finite collection of sets $\{A_n\}$ for $1 \leq n \leq k$, where each $A_n$ is in $\mathcal{A}'$. We want to prove that $\bigcup_{n=1}^{k} A_n$ is also in $\mathcal{A}'$.
+
+- Let $B = \bigcup_{n=1}^{k} A_n$. We are trying to show that $B$ is in $\mathcal{A}'$.
+
+- By De Morgan's laws, $\mathcal{A}'$ (being a $\sigma$-algebra) is stable under countable intersections. Therefore, for any finite collection of sets, the intersection is a countable intersection.
+
+- Consider the complement of $B$, denoted as $B' = X \setminus B$. Since $B$ is the union of $\{A_n\}$, $B'$ is the intersection of $\{X \setminus A_n\}$. Since $X \setminus A_n$ is in $\mathcal{A}'$ (complements are in $\mathcal{A}'$ by definition), their intersection is also in $\mathcal{A}'$.
+
+- Now, recall that $\mathcal{A}'$ is stable under countable intersections, so the intersection of $\{X \setminus A_n\}$ for $1 \leq n \leq k$ is in $\mathcal{A}'$. This means $B'$ is in $\mathcal{A}'$.
+
+Finally, since $B'$ is in $\mathcal{A}'$, and $\mathcal{A}'$ is stable under complements, $B = X \setminus B'$ is also in $\mathcal{A}'$.
+
+Therefore, $\bigcup_{n=1}^{k} A_n = B$ is in $\mathcal{A}'$, and we have shown that $\mathcal{A}'$ is stable under finite unions.
+
+\end{proof}
+\end{exercise}
+
+    \begin{exercise}
+    Let $X$ be a set and $M$ be a $\sigma$-algebra on $X$. Show that $M$ is stable under countable intersections.
+
+    \begin{proof}
+        We know that a collection of subsets $\mathcal{M}$ of $X$ is called a $\sigma$-algebra if it satisfies certain properties. Here, stability under intersection means we have to show that for $A_k \in \mathcal{M} \Rightarrow \left(\bigcap_{k\in\mathbb{N}} A_k\right) \in \mathcal{M}$.
+
+So, $A_k \in \mathcal{M} \Rightarrow (A_k^c) \in \mathcal{M}$ (closed under complementation).
+
+Then, $\bigcup_{k\in\mathbb{N}} (A_k^c) \in \mathcal{M}$ (closed under union).
+
+$\Rightarrow \left(\bigcup_{k\in\mathbb{N}} A_k^c\right)^c \in \mathcal{M}$ (closed under complementation).
+
+$\Rightarrow \bigcap_{k\in\mathbb{N}} (A_k^c)^c \in \mathcal{M}$ (De Morgan's Law).
+
+$\Rightarrow \bigcap_{k\in\mathbb{N}} A_k \in \mathcal{M}$ (Hence, proved).
+    \end{proof}
+        
+    \end{exercise}
+
+    \begin{exercise}
+        Let $X$ be a set, and let $M$ be a $\sigma$-algebra on $X$. Show that $M$ is stable under finite intersections.
+
+    \begin{proof}
+        To show that a $\sigma$-algebra is stable under finite intersections, we can use De Morgan's laws, which state:
+
+We know that \(M\) is stable under infinite intersections, as stated in Exercise 8. Now, let's extend this stability to finite intersections.
+
+Consider a finite sequence of sets \(\{A_n\}_{k=1}^{n}\) in \(M\). We want to show that their intersection, denoted by \(A = \bigcap_{k=1}^{n} A_k\), is also in \(M\).
+
+To extend this finite sequence into an infinite one, observe that intersecting with the whole set \(X\) does not change anything. Therefore, we can define a sequence \(\{A_{\tilde{n}}\}_{n=1}^{\infty}\) where \(A_{\tilde{n}} = A_n\) for \(1 \leq n \leq k\) and \(A_{\tilde{n}} = X\) for \(n > k\).
+
+Now, we have an infinite sequence, and by the stability of \(M\) under infinite intersections, we know that \(\bigcap_{n=1}^{\infty} A_{\tilde{n}} \in M\).
+
+Since \(\bigcap_{n=1}^{\infty} A_{\tilde{n}} = A \), we conclude that \(M\) is stable under finite intersections.
+
+
+    \end{proof}
+    \end{exercise}
+
+    \begin{exercise}
+        Let $X$ be a set, and let $M$ be a $\sigma$-algebra on $X$. Show that $M$ is stable under set differences.
+
+    \begin{proof}
+       Given two sets $A$ and $B$ in $\mathcal{A}$, we want to show that their set difference $A \setminus B$ also belongs to $\mathcal{A}$.
+
+Let \(A, B \in M\). We aim to show that \(A \backslash B \in M\).
+
+Note that \(A \backslash B\) can be expressed as the intersection of \(A\) and the complement of \(B\):
+\[
+A \backslash B = A \cap (B^c).
+\]
+
+Since \(B \in M\), by the property (2) of a \(\sigma\)-algebra, we know that \(X \backslash B \in M\). Now, using the property (3) that a \(\sigma\)-algebra is stable under countable intersections, we conclude that \(A \cap (X \backslash B) \in M\).
+
+Therefore, \(M\) is stable under set differences.
+
+    \end{proof}
+    \end{exercise}
+
+    \begin{exercise}
+        Let $X$ be a set. The symmetric difference between two subsets $A$ and $B$ of $X$ is defined as the set\\
+$A \bigtriangleup B = \{x \in X : [(x \in A) \land (x \notin B)] \lor [(x \in B) \land (x \notin A)]\}$.
+
+If $M$ is a $\sigma$-algebra on $X$, show that $M$ is stable under symmetric differences.
+
+    \begin{proof}
+        Recall the definition of symmetric difference:
+
+\[
+A \bigtriangleup B = \{x \in X : [(x \in A) \land (x \notin B)] \lor [(x \in B) \land (x \notin A)]\}.
+\]
+
+Now, let's rewrite $A \bigtriangleup B$ in terms of intersection, union, and complementation:
+
+\[
+A \bigtriangleup B = (A \cap B^c) \cup (A^c \cap B)
+\]
+
+meaning the symmetric difference consists of elements that are either in $A$ and not in $B$, or in $B$ and not in $A$.
+
+We can express this in terms of complementation and intersection:
+
+\[
+A \bigtriangleup B = (A \cap B^c) \cup (A^c \cap B)
+\]
+
+Now, we can see that $A \bigtriangleup B$ is a union of two sets, each of which is an intersection of a set in $\mu$ with its complement. Since $\mu$ is a $\sigma$-algebra, it is closed under complementation, union, and intersection. Therefore, $A \bigtriangleup B$ is in $\mu$ because it is expressed as a combination of operations that$\mu$ is closed under.\\
+    Hence, $\mu$ is stable under symmetric differences, and if $A$ and $B$ are in $\mu$, then $A \bigtriangleup B$ is also in $\mu$.
+
+
+    \end{proof}
+    \end{exercise}
+
+    \begin{exercise}
+        Let $f: X \to Y$ be a function, and let $M \subseteq \mathcal{P}(Y)$ be a $\sigma$-algebra on $Y$. Show that $f^{-1}(M) = \{f^{-1}(A): A \in M\}$ is a $\sigma$-algebra on $X$.
+    \begin{proof}
+        \textbf{Property $(\Sigma 1)$:}
+
+It is easiest to show that $X = f^{-1}(A)$ for some $A \in M$. Since it is always true that $f^{-1}(Y) = X$ ( definition of the inverse image), it remains to ensure that $Y \in M$. But this is true by property $(\Sigma 1)$ since $M$ is a $\sigma$-algebra on $Y$.
+
+\textbf{Property $(\Sigma 2)$:}
+
+We want to show that $X \setminus B = f^{-1}(Y \setminus D)$ is in $M$. 
+
+\[X \setminus B = f^{-1}(Y) \setminus f^{-1}(D)\]
+
+We aim to prove the set equality $f^{-1}(Y) \setminus f^{-1}(D) = f^{-1}(Y \setminus D)$.
+
+\begin{itemize}
+    \item $f^{-1}(Y) \setminus f^{-1}(D) \subseteq f^{-1}(Y \setminus D)$
+
+    If $x \in f^{-1}(Y) \setminus f^{-1}(D)$, then $x \in f^{-1}(Y)$ and $x \notin f^{-1}(D)$. This implies that $f(x) \in Y$ and $f(x) \notin D$, so $f(x) \in Y \setminus D$. Consequently, $x \in f^{-1}(Y \setminus D)$.
+
+    \item $f^{-1}(Y \setminus D) \subseteq f^{-1}(Y) \setminus f^{-1}(D)$
+
+    If $x \in f^{-1}(Y \setminus D)$, then $f(x) \in Y \setminus D$, which means $f(x) \in Y$ and $f(x) \notin D$. Therefore, $x \in f^{-1}(Y)$ and $x \notin f^{-1}(D)$, implying $x \in f^{-1}(Y) \setminus f^{-1}(D)$.
+\end{itemize}
+
+Thus, $X \setminus B = f^{-1}(Y \setminus D)$, and since $Y \setminus D \in M$ by $(\Sigma 2)$, $X \setminus B \in f^{-1}(M)$.
+
+
+\textbf{Property $(\Sigma 3)$:}
+
+We need to show that if $(A_n)_{n=1}^{\infty}$ is a sequence in $f^{-1}(M)$, then $\bigcup_{n=1}^{\infty} A_n \in f^{-1}(M)$.
+
+In other words, we want to prove that $\bigcup_{n=1}^{\infty} A_n \in f^{-1}(C)$ for some $C \in M$.
+
+Since $A_n = f^{-1}(B_n)$ for some $B_n \in M$ by the definition of $f^{-1}(M)$, we can apply the Hausdorff formula for inverse images:
+
+\[\bigcup_{n=1}^{\infty} f^{-1}(B_n) = f^{-1}\left(\bigcup_{n=1}^{\infty} B_n\right)\]
+
+Now, since $\bigcup_{n=1}^{\infty} f^{-1}(B_n) \in M$ (by property 3, we have $\bigcup_{n=1}^{\infty} A_n \in f^{-1}(C)$ for $C = \bigcup_{n=1}^{\infty} B_n$.
+\end{proof}
+\end{exercise}
+    \begin{exercise}
+        Let \(X\), \(Y\), \(Z\) be sets equipped respectively with topologies \(\mathcal{O}_X\), \(\mathcal{O}_Y\), \(\mathcal{O}_Z\). Let \(f : X \to Y\) and \(g : Y \to Z\) be functions. Show that if \(f\) is topologically continuous from \((X, \mathcal{O}_X)\) to \((Y, \mathcal{O}_Y)\) and if \(g\) is topologically continuous from \((Y, \mathcal{O}_Y)\) to \((Z, \mathcal{O}_Z)\), then \(g \circ f\) is topologically continuous from \((X, \mathcal{O}_X)\) to \((Z, \mathcal{O}_Z)\).
+
+    \begin{proof}
+
+To show that \(g \circ f\) is topologically continuous, we need to demonstrate that the preimage of every open set in \(Z\) is open in \(X\), i.e., for every \(U \in \mathcal{O}_Z\), \((g \circ f)^{-1}(U) \in \mathcal{O}_X\).
+
+Since \(g\) is topologically continuous, for any \(V \in \mathcal{O}_Z\), we have \(g^{-1}(V) \in \mathcal{O}_Y\). Similarly, as \(f\) is topologically continuous, for any \(W \in \mathcal{O}_Y\), we have \(f^{-1}(W) \in \mathcal{O}_X\).
+
+Now, consider an arbitrary open set \(U \in \mathcal{O}_Z\). By the continuity of \(g\), we have \(g^{-1}(U) \in \mathcal{O}_Y\). Similarly, by the continuity of \(f\), we have \(f^{-1}(g^{-1}(U)) \in \mathcal{O}_X\).
+
+Now, notice that \((g \circ f)^{-1}(U) = f^{-1}(g^{-1}(U))\). Therefore, \((g \circ f)^{-1}(U) \in \mathcal{O}_X\).
+
+This concludes the proof that \(g \circ f\) is topologically continuous from \((X, \mathcal{O}_X)\) to \((Z, \mathcal{O}_Z)\).
+
+
+
+   
+    
+
+    \end{proof}
+    \end{exercise}
+
+
+    (a) To find a full Disjunctive Normal Form (DNF) equivalent to the given formula P, let's first analyze the original formula:
+\[ P ::= (ABACADAE) \lor (\lnot ABACAE) \]
+We can see that the first clause \((ABACADAE)\) is a conjunction of five literals, and the second clause \((\lnot ABACAE)\) is a disjunction of three literals. To express the formula in DNF with only "AND-of-literal" clauses, we can distribute the disjunction over the conjunction in the first clause:
+\[ P \equiv (ABACADAE \land \lnot ABACAE) \]
+Now, both clauses are in "AND-of-literal" form, and the entire formula is in DNF.
+(b) A full Conjunctive Normal Form (CNF) is essentially a conjunction of "OR-of-literal" clauses. We've already established the DNF form of the given formula as:
+\[ P \equiv (ABACADAE \land \lnot ABACAE) \]
+To convert this DNF into CNF, we distribute the conjunction over the disjunction:
+\[ P \equiv (ABACADAE \lor ABACAE) \land (\lnot ABACADAE \lor \lnot ABACAE) \]
+Now, we have two clauses in CNF. Each clause represents a possible combination of truth values for the literals in the original formula.
+So, there are two clauses in the simplified CNF form of \(P\).
+\end{document}

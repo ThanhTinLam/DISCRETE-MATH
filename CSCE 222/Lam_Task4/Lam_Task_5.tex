@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proof}
+
+\title{\textbf{MATHEMATICAL LOGIC}}
+\author{ Thanh Tin Lam}
+\date{ 12 October 2023}
+
+\begin{document}
+\maketitle
+\vspace{2cm}
+\section{Induction}
+    \subsection{Principle of mathematical induction (PMI)}
+\begin{theorem}{Principle of mathematical induction} 
+\hspace{1mm} 
+    \begin{itemize}
+    \item Let $P(n)$ be a predicate where the variable takes integer values. Suppose that there exists $k_0 \in \mathbb{Z}$ such that:
+
+    \item $P(k_0)$ is true (the base case), and
+    \item for all $k \geq k_0$, $P(k + 1)$ is true under the assumption that $P(k)$ is true (the induction step),
+
+    \item then for all $k \geq k_0$, $P(k)$ is true (the conclusion).
+    \end{itemize}
+ \begin{equation}
+P(1) \land (\left(\forall n \geq 1 \right) \left(P(n) \Rightarrow P(n+1)) \right) \Rightarrow \left((\forall n \geq 1 \right) P(n))
+\end{equation}
+\end{theorem}
+
+    \subsection{Principle of strong mathematical induction (PSMI)}
+\begin{theorem}{Principle of strong mathematical induction}
+
+    \begin{itemize}
+    \item Let $P(n)$ be a predicate where the variable takes integer values. Suppose that there exists an integer $k_0$ such that:
+    \item $P(k_0)$ is true (the base case), and
+    \item for all $k \geq k_0$, $P(k+1)$ is true under the assumption that for all $r \in \{k_0, k_0 + 1, \ldots, k\}$, $P(r)$ is true (the induction step),
+    \item then for all $n \geq k_0$, $P(n)$ is true (the conclusion).
+    \end{itemize}
+    \begin{equation}
+        P(1) \land (\left( \forall n \geq 1 \right) \left( P(1) \land P(2) \land \ldots \land P(n) \right) \Rightarrow P(n+1)) \Rightarrow \left(( \forall n \geq 1 \right) P(n))
+    \end{equation}
+    \end{theorem}
+
+    \subsection{Prove that PMI $\Leftrightarrow$ PSMI}
+    \begin{problem}
+        Prove that the principle of mathematical induction is equivalent to the principle of strong mathematical induction
+    \end{problem}
+    \begin{proof}
+        To prove the equivalence of the principle of mathematical induction and the principle of strong mathematical induction, we'll need to establish two things:
+    \begin{enumerate}
+        \item  \textbf{The principle of mathematical induction implies the principle of strong mathematical induction.}
+        \vspace{2mm}
+
+        1. We'll start with the assumption that the Principle of Mathematical Induction (PMI) is true. That is, we have $P(1)$ is true, and for all $n \geq 1$, $(P(1) \land P(2) \land \ldots \land P(n)) \Rightarrow P(n+1)$.
+
+        2. We want to prove the Principle of Strong Mathematical Induction (PSMI), which states that for all $n \geq 1$, $[(P(1) \land P(2) \land \ldots \land P(n)) \Rightarrow P(n+1)]$ implies that for all $n \geq 1$, $P(n)$ is true.
+
+        3. To prove PSMI, we'll use a proof by contradiction. Suppose PSMI is false, which means there exists some natural number $k$ for which $P(k)$ is false.
+
+        4. Among all such $k$, let $k_0$ be the smallest such natural number for which $P(k_0)$ is false.
+
+        5. Now, let's consider the statement $(P(1) \land P(2) \land \ldots \land P(k_0-1))$. This statement should be true because if it were false, then there would exist a smaller natural number $k'$ for which $P(k')$ is false, contradicting the choice of $k_0$ as the smallest such number.
+
+        6. By the induction hypothesis (PMI), since $(P(1) \land P(2) \land \ldots \land P(k_0-1))$ is true, it follows that $(P(1) \land P(2) \land \ldots \land P(k_0-1)) \Rightarrow P(k_0)$ must also be true.
+
+        7. However, we started with the assumption that $P(k_0)$ is false. This contradicts the implication $(P(1) \land P(2) \land \ldots \land P(k_0-1)) \Rightarrow P(k_0)$ being true.
+
+        8. Therefore, our assumption that PSMI is false must be incorrect. This means that for all $n \geq 1$, $[(P(1) \land P(2) \land \ldots \land P(n)) \Rightarrow P(n+1)]$ implies that for all $n \geq 1$, $P(n)$ is true, and thus PSMI is true.
+
+So, we have shown that PMI implies PSMI.
+
+	
+		
+		
+	
+
+        \item  \textbf{The principle of strong mathematical induction implies the principle of mathematical induction.}
+        \vspace{2mm}
+
+        Suppose PSMI holds, meaning we have the base case and the inductive step.
+    \begin{itemize}
+         
+    
+    \item Base Case (PSMI): $P(1)$ is true.
+
+    \item Inductive Step (PSMI): We assume that $P(1), P(2), \ldots, P(n)$ are all true (the strong induction hypothesis), and then prove that $P(n + 1)$ is true.
+
+    Now, let's prove PMI:
+
+    \item Base Case (PMI): PMI requires that $P(1)$ is true.
+
+    \item Inductive Step (PMI): PMI requires that for any arbitrary $n$, if $P(n)$ is true, then $P(n + 1)$ is true.
+    \end{itemize}
+    Since the inductive step of PSMI is a special case of the inductive step of PMI, we can conclude that PSMI implies PMI.
+
+    \end{enumerate}
+    \end{proof}
+\end{document}

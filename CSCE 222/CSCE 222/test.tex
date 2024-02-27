@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+
+This completes the proof. We have shown that the conclusion follows from the premise\\
+\\
+\\
+\\
+\\
+
+
+
+
+(a) To find a full Disjunctive Normal Form (DNF) equivalent to the given formula \(P\), we first examine the original formula:
+\[ P ::= (ABACADAE) \lor (\lnot ABACAE) \]
+ 
+The formula consists of two main clauses connected by a disjunction (\(\lor\)). The first clause, \(ABACADAE\), is a conjunction of five literals, while the second clause, \(\lnot ABACAE\), is a disjunction of three literals. Our goal is to express the formula in DNF with only "AND-of-literal" clauses.
+ 
+In the first clause, \(ABACADAE\), every literal is connected by conjunction (\(\land\)), forming a conjunction of five literals. The second clause, \(\lnot ABACAE\), is already a disjunction of literals but lacks the "AND-of-literal" structure.
+To achieve DNF, we distribute the disjunction over the conjunction in the first clause:
+\[ P \equiv (ABACADAE \land \lnot ABACAE) \]
+ 
+Now, both clauses are in "AND-of-literal" form, and the entire formula is in DNF.
+This transformation is based on the distributive property of logical connectives, allowing us to express a disjunction over a conjunction as a conjunction of disjunctions. In this case, it ensures that the resulting formula is in DNF.
+(b) A full Conjunctive Normal Form (CNF) is essentially a conjunction of "OR-of-literal" clauses. The DNF form we obtained in part (a) is:
+ 
+\[ P \equiv (ABACADAE \land \lnot ABACAE) \]
+To convert this DNF into CNF, we distribute the conjunction over the disjunction:
+\[ P \equiv (ABACADAE \lor ABACAE) \land (\lnot ABACADAE \lor \lnot ABACAE) \]
+ 
+Now, we have two clauses in CNF. Each clause represents a possible combination of truth values for the literals in the original formula. The first clause accounts for the scenario where the conjunction \(ABACADAE\) is true, and the disjunction \(\lnot ABACAE\) is true. The second clause covers the case where the negation of the conjunction \(\lnot ABACADAE\) is true, and the negation of the disjunction \(\lnot ABACAE\) is also true.
+ 
+In essence, the CNF representation breaks down the formula into simpler clauses, each capturing a distinct condition under which the original formula holds true. The transformation from DNF to CNF is a fundamental step in logic simplification, and it involves manipulating the structure of the formula while preserving its logical equivalence.
+In summary, the DNF and CNF representations of the given formula (\(P\)) provide alternative ways to express its logic, with DNF emphasizing disjunctions of conjunctions and CNF emphasizing conjunctions of disjunctions. These forms are crucial in logic optimization and understanding the fundamental structure of logical statements.Approach to solving the question:\\
+
+We'll use the hint provided to express the conclusion in terms of implications. Let's break it down step by step:
+1. Start with the premise: \( p \rightarrow q \)\\
+2. Use the hint to express \( (p \rightarrow q) \rightarrow (p \rightarrow r) \):\\
+  - This is equivalent to \( p \rightarrow (q \rightarrow r) \)\\
+3. Now, we want to show \( (p \rightarrow (q \rightarrow r)) \rightarrow (p \rightarrow r) \):\\
+  - This is equivalent to \( (p \rightarrow (q \rightarrow r)) \rightarrow (p \rightarrow r) \)\\
+ 
+By simplifying the expression, we see that the conclusion \( (p \rightarrow (q \rightarrow r)) \rightarrow (p \rightarrow r) \) follows from the premise \( p \rightarrow q \).\\
+
+Here are summarized steps on how I accomplished this task:\\
+1. Start with the premise \( p \rightarrow q \).\\
+2. Use the hint to express \( (p \rightarrow q) \rightarrow (p \rightarrow r) \), which is equivalent to \( p \rightarrow (q \rightarrow r) \).\\
+3. Simplify the expression to \( (p \rightarrow (q \rightarrow r)) \rightarrow (p \rightarrow r) \).\\
+4. The conclusion \( (p \rightarrow (q \rightarrow r)) \rightarrow (p \rightarrow r) \) follows from the premise \( p \rightarrow q \).\\
+
+(a) To find a full Disjunctive Normal Form (DNF) equivalent to the given formula P, let's first analyze the original formula:
+\[ P ::= (ABACADAE) \lor (\lnot ABACAE) \]
+We can see that the first clause \((ABACADAE)\) is a conjunction of five literals, and the second clause \((\lnot ABACAE)\) is a disjunction of three literals. To express the formula in DNF with only "AND-of-literal" clauses, we can distribute the disjunction over the conjunction in the first clause:
+\[ P \equiv (ABACADAE \land \lnot ABACAE) \]
+Now, both clauses are in "AND-of-literal" form, and the entire formula is in DNF.
+(b) A full Conjunctive Normal Form (CNF) is essentially a conjunction of "OR-of-literal" clauses. We've already established the DNF form of the given formula as:
+\[ P \equiv (ABACADAE \land \lnot ABACAE) \]
+To convert this DNF into CNF, we distribute the conjunction over the disjunction:
+\[ P \equiv (ABACADAE \lor ABACAE) \land (\lnot ABACADAE \lor \lnot ABACAE) \]
+Now, we have two clauses in CNF. Each clause represents a possible combination of truth values for the literals in the original formula.
+So, there are two clauses in the simplified CNF form of \(P\).
+
+Explanation:
+(a) To find a full Disjunctive Normal Form (DNF) equivalent to the given formula \(P\), we first examine the original formula:
+\[ P ::= (ABACADAE) \lor (\lnot ABACAE) \]
+ 
+The formula consists of two main clauses connected by a disjunction (\(\lor\)). The first clause, \(ABACADAE\), is a conjunction of five literals, while the second clause, \(\lnot ABACAE\), is a disjunction of three literals. Our goal is to express the formula in DNF with only "AND-of-literal" clauses.
+ 
+In the first clause, \(ABACADAE\), every literal is connected by conjunction (\(\land\)), forming a conjunction of five literals. The second clause, \(\lnot ABACAE\), is already a disjunction of literals but lacks the "AND-of-literal" structure.
+To achieve DNF, we distribute the disjunction over the conjunction in the first clause:
+\[ P \equiv (ABACADAE \land \lnot ABACAE) \]
+ 
+Now, both clauses are in "AND-of-literal" form, and the entire formula is in DNF.
+This transformation is based on the distributive property of logical connectives, allowing us to express a disjunction over a conjunction as a conjunction of disjunctions. In this case, it ensures that the resulting formula is in DNF.
+(b) A full Conjunctive Normal Form (CNF) is essentially a conjunction of "OR-of-literal" clauses. The DNF form we obtained in part (a) is:
+ 
+\[ P \equiv (ABACADAE \land \lnot ABACAE) \]
+To convert this DNF into CNF, we distribute the conjunction over the disjunction:
+\[ P \equiv (ABACADAE \lor ABACAE) \land (\lnot ABACADAE \lor \lnot ABACAE) \]
+ 
+Now, we have two clauses in CNF. Each clause represents a possible combination of truth values for the literals in the original formula. The first clause accounts for the scenario where the conjunction \(ABACADAE\) is true, and the disjunction \(\lnot ABACAE\) is true. The second clause covers the case where the negation of the conjunction \(\lnot ABACADAE\) is true, and the negation of the disjunction \(\lnot ABACAE\) is also true.
+ 
+In essence, the CNF representation breaks down the formula into simpler clauses, each capturing a distinct condition under which the original formula holds true. The transformation from DNF to CNF is a fundamental step in logic simplification, and it involves manipulating the structure of the formula while preserving its logical equivalence.
+In summary, the DNF and CNF representations of the given formula (\(P\)) provide alternative ways to express its logic, with DNF emphasizing disjunctions of conjunctions and CNF emphasizing conjunctions of disjunctions. These forms are crucial in logic optimization and understanding the fundamental structure of logical statements.Approach to solving the question:
+ 
+
+\end{document}
